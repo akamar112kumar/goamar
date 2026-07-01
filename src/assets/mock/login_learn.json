@@ -1,0 +1,49 @@
+{
+  "logins": [
+    {
+      "id": "1f4c",
+      "username": "amar.kumar",
+      "password": "Amar@123",
+      "ageAccepted": true
+    },
+    {
+      "id": "2a7b",
+      "username": "sandeep.dhere",
+      "password": "Sand@123",
+      "ageAccepted": false
+    },
+    {
+      "id": "5ff3",
+      "username": "rupesh",
+      "password": "Rupesh@123",
+      "ageAccepted": false
+    },
+    {
+      "id": "f727",
+      "username": "radheeka",
+      "password": "Radheeka@123",
+      "ageAccepted": true
+    }
+  ],
+  "datalist": [
+    { "id": "u1", "name": "asha", "age": 28, "active": true , "roles":"admin"},
+    { "id": "u2", "name": "rahul", "age": 35, "active": false , "roles":"manager"},
+    { "id": "u3", "name": "priya", "age": 25, "active": true, "roles":"user" },
+    { "id": "u4", "name": "vijay", "age": 30, "active": false, "roles":"user" },
+     { "id": "UL1", "name": "amar", "age": 82, "active": true , "roles":"admin"}
+    
+  ],
+  "datadetails":[
+    { "id": "u1", "name": "asha", "age": 28, "active": true , "roles":"admin"},
+    { "id": "u2", "name": "rahul", "age": 35, "active": false , "roles":"manager"},
+    { "id": "u3", "name": "priya", "age": 25, "active": true, "roles":"user" },
+    { "id": "u4", "name": "vijay", "age": 30, "active": false, "roles":"user" },
+     { "id": "UL1", "name": "amar", "age": 82, "active": true , "roles":"admin"}
+  ],
+  "items":[
+{"name": "amar","password": "Amar@123","roles":"admin"},
+{"name": "sandeep","password": "Sand@123","roles":"manager"},
+{"name": "rupesh","password": "Rupesh@123","roles":"user"},
+{"name": "radheeka","password": "Radheeka@123","roles":"user"}
+  ]
+}

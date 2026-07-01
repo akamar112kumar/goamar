@@ -1,0 +1,26 @@
+.outerbox{
+    display: flex;
+    width: 200px;
+    height: 200px;
+    background-color: lightblue;    
+}
+.innerbox{
+   width: 100px;
+    height: 50px;
+    background-color: lightcoral;
+    margin: auto;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.custome{
+    font-size: 12px;
+    white-space: nowrap;
+        padding: 4px;
+}
+
+.scroll{
+    overflow-y: scroll;
+    height: 289px;
+}

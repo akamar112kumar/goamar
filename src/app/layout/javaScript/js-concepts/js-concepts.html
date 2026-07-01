@@ -1,0 +1,171 @@
+
+
+
+<div class="container">
+    <div class="accordion" id="jsConceptsAccordion">
+         <div class="accordion-item">
+            <h2 class="accordion-header" id="scope">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseScope" aria-expanded="true" aria-controls="collapseScope">
+                    <h1 class="mb-0">JavaScript Variables & Scope</h1>
+                </button>
+            </h2>
+            <div id="collapseScope" class="accordion-collapse collapse show" aria-labelledby="headingScope" data-bs-parent="#jsConceptsAccordion">
+                <div class="accordion-body">
+                    <p>
+                       var – function scoped
+let – block scoped
+const – block scoped, cannot be reassigned
+Global scope vs Function scope vs Block scope
+Hoisting: var is hoisted with undefined, let & const are hoisted but in Temporal Dead Zone
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Accordion Item 1: Overview -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOverview">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOverview" aria-expanded="true" aria-controls="collapseOverview">
+                    <h1 class="mb-0">JavaScript Data Types</h1>
+                </button>
+            </h2>
+            <div id="collapseOverview" class="accordion-collapse collapse show" aria-labelledby="headingOverview" data-bs-parent="#jsConceptsAccordion">
+                <div class="accordion-body">
+                    <p>
+                        Data types in JavaScript are categorized into two main groups:
+                        <strong>primitives</strong> and <strong>objects</strong>.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+       
+        <!-- Accordion Item 2: Primitive Types -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingPrimitive">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePrimitive" aria-expanded="false" aria-controls="collapsePrimitive">
+                    Primitive Types (7)
+                </button>
+            </h2>
+            <div id="collapsePrimitive" class="accordion-collapse collapse" aria-labelledby="headingPrimitive" data-bs-parent="#jsConceptsAccordion">
+                <div class="accordion-body">
+                    <p>These represent single, immutable values.</p>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <strong>Number:</strong> For both integer and floating‑point numbers,
+                            including <em>Infinity</em> and <em>NaN</em>.
+                        </li>
+                        <li class="list-group-item">
+                            <strong>BigInt:</strong> For integers of arbitrary size.
+                        </li>
+                        <li class="list-group-item">
+                            <strong>String:</strong> For text enclosed in quotes.
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Boolean:</strong> Logical values <code>true</code> or <code>false</code>.
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Null:</strong> Represents intentional absence of a value.
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Undefined:</strong> Variable declared but not assigned.
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Symbol:</strong> Unique identifiers used as object keys.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Accordion Item 3: Non-Primitive Type -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingNonPrimitive">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNonPrimitive" aria-expanded="false" aria-controls="collapseNonPrimitive">
+                    Non-Primitive Type (1)
+                </button>
+            </h2>
+            <div id="collapseNonPrimitive" class="accordion-collapse collapse" aria-labelledby="headingNonPrimitive" data-bs-parent="#jsConceptsAccordion">
+                <div class="accordion-body">
+                    <p>Object: For more complex data structures, such as arrays, functions, and key-value pairs.</p>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingNonPrimitive">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNonPrimitive1" aria-expanded="false" aria-controls="collapseNonPrimitive">
+                    What is the difference between Subject, BehaviorSubject, ReplaySubject?
+                </button>
+            </h2>
+            <div id="collapseNonPrimitive1" class="accordion-collapse collapse" aria-labelledby="headingNonPrimitive" data-bs-parent="#jsConceptsAccordion">
+                <div class="accordion-body">
+                   <table class="table table-bordered table-striped mt-3">
+  <thead class="table-dark">
+    <tr>
+      <th>Type</th>
+      <th>Initial Value</th>
+      <th>Emits Latest to New Subscriber</th>
+      <th>Stores History</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>Subject</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+    </tr>
+
+    <tr>
+      <td>BehaviorSubject</td>
+      <td>✅</td>
+      <td>✅</td>
+      <td>1 latest</td>
+    </tr>
+
+    <tr>
+      <td>ReplaySubject</td>
+      <td>❌</td>
+      <td>✅</td>
+      <td>✅ (buffer size)</td>
+    </tr>
+  </tbody>
+</table>
+
+                </div>
+                 
+            </div>
+             <div class="accordion-item">
+            <h2 class="accordion-header" id="headingNonPrimitive">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNonPrimitive2" aria-expanded="false" aria-controls="collapseNonPrimitive">
+                    What is subscribe() used for?
+                </button>
+            </h2>
+            <div id="collapseNonPrimitive2" class="accordion-collapse collapse" aria-labelledby="headingNonPrimitive" data-bs-parent="#jsConceptsAccordion">
+                <div class="accordion-body">
+                    <p>subscribe() is used to observe an observable.
+It accepts 3 callbacks:</p>
+
+<pre class="bg-light p-3 border rounded">
+<code>
+<!-- obs$.subscribe({ -->
+  <!-- next: v => {
+    console.log(v);
+  },
+  error: e => {
+    console.error(e);
+  },
+  complete: () => {
+    console.log('Completed');
+  }
+}); -->
+</code>
+  </pre>
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+

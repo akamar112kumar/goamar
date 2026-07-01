@@ -1,0 +1,10 @@
+.main-app {
+    height: calc(100vh);
+    .app_class{
+        // height: calc(100% - 50px);
+        display: flex;
+        button{
+            width: 100%;
+        }
+    }
+}

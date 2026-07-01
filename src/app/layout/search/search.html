@@ -1,0 +1,53 @@
+<div class="card-body">
+  <h5 class="card-title">Search Component</h5>
+   <div class="search-box">
+        <input type="search" placeholder="Search" aria-label="Search" type="text" [(ngModel)]="searchTerm"
+          (input)="onSearchChange(searchTerm)" placeholder="Search..." class="form-control">
+      </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+     
+      <div class="card-body scollbar">
+      <table class="results table table-striped table-success table-bordered border-primary"
+        *ngIf="searchResults.length > 0">
+        <tr>
+          <th>id </th>
+          <th>Title</th>
+          <th>Body</th>
+        </tr>
+        <tr *ngFor="let item of searchResults">
+          <td>{{ item.id }} </td>
+          <td>{{ item.title }}</td>
+          <td>{{ item.body }}</td>
+        </tr>
+      </table>
+      </div>
+
+      <div *ngIf="searchTerm && searchResults.length === 0">
+        No results found.
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6">
+
+     
+        <div class="card-body scollbar">
+          <table class="results table table-striped table-success table-bordered border-primary"
+            *ngIf="searchResults.length > 0">
+            <tr>
+              <th>id</th>
+              <th>title</th>
+              <th>body</th>
+            </tr>
+            <tr *ngFor="let item of searchResults1">
+              <td>{{ item.id }}</td>
+              <td>{{ item.title }}</td>
+              <td>{{ item.body }}</td>
+            </tr>
+          </table>
+        </div>
+    
+
+    </div>
+  </div>
+
+</div>

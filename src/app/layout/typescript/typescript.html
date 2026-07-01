@@ -1,0 +1,159 @@
+
+
+ 
+
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card">
+       <div class="card-header">       
+    <button (click)="getresult2()" style="margin-bottom: 10px;">Click to Filter</button>
+    <button (click)="getresult()" style="margin-bottom: 10px;">Click to Filter2</button>
+    <button (click)="getresult3()" style="margin-bottom: 10px;"> 1</button>
+    <button (click)="getresult4()" style="margin-bottom: 10px;"> 2</button>
+  </div>
+  <div class="card-body">
+    <div style="display: flex; gap: 20px;">
+      <!-- Original Orders Table -->
+      <div>
+        <h3>All Orders</h3>
+        <table border="1">
+          <tr>
+            <th>userId</th>
+            <th>amount</th>
+          </tr>
+          @for (order of orders; track order)
+          {
+          <tr>
+            <td>{{order.userId}}</td>
+            <td>{{order.amount}}</td>
+          </tr>
+          }
+
+        </table>
+      </div>
+
+      <!-- Filtered Results Table -->
+      <div>
+        <h3>Filtered (userId = ?)</h3>
+
+        <table border="1">
+          <tr>
+            <th>userId</th>
+            <th></th>
+            <th>amount</th>
+          </tr>
+          @for (order of result(); track order)
+          {
+          <tr>
+            <td>{{order.userId}}</td>
+            <td></td>
+            <td>{{order.amount}}</td>
+          </tr>
+          }
+
+
+        </table>
+        <table>
+          <thead>
+            <tr>
+              <th>userId</th>
+              <th>amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>userId</td>
+              <td>{{resultCount()}} time</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+        <div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <div class="d-flex">
+      <button class="btn btn-primary" (click)="getdatefortest()">data show</button>
+      <button class="btn btn-primary" (click)="searchChanged()">search show</button>
+      <input type="text" (input)="searchPosts($event.target.value)" placeholder="Search posts by title" />
+       
+    </div>
+    
+<div class="row">
+<div class="col-sm-6">
+    <div class="card">
+      <div class="card-body scollbar">
+        <table border="1 ">
+          <tr>
+            <th>Id</th>
+            <th>Title</th>
+          </tr>
+          @for (item of apidatauser; track item)
+          {
+          <tr>
+            @if(item.id < 20){
+            <td> {{item.id}}</td>
+            <td>{{item.title}}</td>
+            }  
+          </tr>
+        }
+     
+        @empty {
+          <p><button class="btn btn-primary">item not matching</button> </p>
+          }
+          </table>
+       
+      </div>
+    </div>
+  </div>
+   <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body scollbar">
+        <table border="1 ">
+          <tr>
+            <th>Id</th>
+            <th>Email</th>
+            <th>name</th>
+          </tr>
+         
+          @for (item of apidatapost; track item)
+          {
+          <tr>
+            
+            <td> {{item.id}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.name}}</td>
+          
+          </tr>
+        }
+     
+        @empty {
+          <p><button class="btn btn-primary">item not matching</button> </p>
+          }
+          </table>
+       
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div>
+  @for (item of searchText(); track item)
+  {
+    <li>{{item.name}}</li>
+  } 
+</div>
+  
+</div>
+
+  
+
+

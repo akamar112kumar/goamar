@@ -1,0 +1,73 @@
+<app-header></app-header>
+<button class="btn btn-primary mt-3" (click)="oprator()">Test</button> 
+<!-- <input type="text" appDebounce [wait]="500" (debouncedInput)="search($event)" /> -->
+<!-- ✅ Show message when no data -->
+@if (filtered.length === 0) {
+  <div class="alert alert-warning mt-3">
+    No data available for this role.
+  </div>
+}
+
+<!-- ✅ Display filtered items in 4 columns -->
+<div class="row mt-3">
+  @for (item of filtered; track item) {
+    <div class="col-12 col-sm-4 col-md-4 col-lg-4 mb-3">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          {{ item.name }}
+        </div>
+      </div>
+    </div>
+  }
+  <div class="col-12 col-sm-4 col-md-4 col-lg-4 mb-3">
+    <!-- ✅ Bootstrap Select -->
+<div class="roles mb-3">
+  <label class="mt-2">Select Role</label>
+  <select class="form-select w-50" (change)="onOptionSelect($event)">
+    <option value="" disabled selected>Select your role</option>
+
+    @for (r of roles; track r) {
+      <option [value]="r">{{ r }}</option>
+    }
+  </select>
+</div>
+  </div>
+</div>
+
+
+<table class="table table-bordered table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Salary</th>
+      <th>Action</th>
+    
+    </tr>
+  </thead>
+
+  <tbody>
+
+
+    @for (emp of employees; track emp.id) {
+  <tr>
+    <td>{{ emp.id }}</td>
+    <td firstLetterStyle>{{ emp.fullName}}</td>
+    <td>{{ emp.email | employeepipe:'male'}}</td>
+    
+    <td>{{ emp.salary }}</td>
+    <td class="d-flex justify-content-between gap-2">
+      <button class="btn btn-danger btn-sm w-75" (click)="delete(emp.id)">Delete</button>
+      <button class="btn btn-warning btn-sm w-75" [routerLink]="['../edit', emp.id]">Edit</button>
+    </td>
+
+  </tr>
+} @empty {
+  <tr>
+    <td colspan="5" class="text-center text-muted">No Employees Found</td>
+  </tr>
+}   
+    
+  </tbody>
+</table>

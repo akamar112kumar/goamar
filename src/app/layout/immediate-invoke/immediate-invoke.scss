@@ -1,0 +1,7 @@
+.colors tr{
+    border-bottom: 2px solid red;
+}
+
+.colors+tbody tr:nth-of-type(n){
+    border-bottom: 2px solid red;
+}

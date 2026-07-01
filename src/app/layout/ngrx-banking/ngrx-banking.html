@@ -1,0 +1,31 @@
+
+<!-- 
+<button (click)="depositMoney()">Deposit</button>
+<button (click)="withdrawMoney()">Withdraw</button> -->
+
+
+<div class="row">
+  <h1 class="card-header">🏦 NgRx Banking Demo <span class="">(Standalone)</span></h1>
+<div class="card">
+  <div class="card-body">
+			<label class="label">Account ID:</label>
+			<input  class="input" type="text" [(ngModel)]="accountId" />
+		<button class="btn" (click)="onLoad()">Load</button>
+	</div>
+  <div class="card-body">
+			<label class="label">Amount:</label>
+			<input class="input" type="number" [(ngModel)]="amount" />
+			<button class="btn" (click)="onDeposit()">Deposit</button>
+			<button class="btn" (click)="onWithdraw()">Withdraw</button>
+		</div>
+   
+  </div>
+  </div>
+  <div class="card-body d-flex gap-3">
+    <label class="balance">Balance:</label>
+    <div class="balance">₹ {{ balance() | number:'1.0-0' }}</div>
+    <div class="status" *ngIf="status() !== 'idle'">Status: {{ status() }}</div>
+  </div>
+
+  <p class="error" *ngIf="error() as err">{{ err }}</p>
+  

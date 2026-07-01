@@ -1,0 +1,121 @@
+<div class="row">
+    <div class="col-6">
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <table border="1" cellpadding="6" cellspacing="0">
+                    <thead class="colors">
+                        <tr>
+                            <th>Type</th>
+                            <th>How it’s called</th>
+                            <th><code>this</code> value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <button class="nav-link active" id="nav-Normal-function-tab" data-bs-toggle="tab"
+                                    data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
+                                    aria-selected="true">Normal fn</button>
+                            </td>
+                            <td><code>fn()</code></td>
+                            <td><code>undefined</code> (strict) / <code>window</code> (non-strict)</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
+                                    data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile"
+                                    aria-selected="false">Method</button>
+                            </td>
+                            <td><code>obj.fn()</code></td>
+                            <td><code>obj</code></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab"
+                                    data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact"
+                                    aria-selected="false">Constructor</button>
+                            </td>
+                            <td><code>new Fn()</code></td>
+                            <td>new instance</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="nav-link" id="nav-apply-tab" data-bs-toggle="tab"
+                                    data-bs-target="#nav-apply" type="button" role="tab" aria-controls="nav-disabled"
+                                    aria-selected="false">call / apply</button>
+                            </td>
+                            <td><code>fn.call(x)</code></td>
+                            <td><code>x</code></td>
+                        </tr>
+                        <tr>
+
+                            <button class="nav-link" id="nav-arrow-tab" data-bs-toggle="tab" data-bs-target="#nav-arrow"
+                                type="button" role="tab" aria-controls="nav-arrow" aria-selected="false">Arrow
+                                fn</button>
+                            <td>Arrow fn</td>
+                            <td><code>fn()</code></td>
+                            <td>lexical (from outer scope)</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="nav-link" id="nav-iife-tab" data-bs-toggle="tab"
+                                    data-bs-target="#nav-iife" type="button" role="tab" aria-controls="nav-iife"
+                                    aria-selected="false">IIFE</button>
+                            </td>
+                            <td><code>(fn)()</code></td>
+                            <td>depends (same rules as normal function)</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="nav-link m-0 p-0" id="nav-event-tab" data-bs-toggle="tab"
+                                    data-bs-target="#nav-event" type="button" role="tab" aria-controls="nav-event"
+                                    aria-selected="false">Event h andler</button>
+                            </td>
+                            <td>auto</td>
+                            <td>event target element</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </nav>
+    </div>
+    <div class="col-6">
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                aria-labelledby="nav-Normal-function-tab" tabindex="0">
+                    <div> <!-- function greet() { console.log("Hello");}greet(); -->
+                    <button  (click)="greet()">function check</button>
+                    <div>
+                    <label> normal function: </label> 
+                    {{total}}
+                    </div>
+                    <div>
+                    <label> invoke function and display value: </label>{{count}}
+                    </div>
+                    <p>
+                    Simply calling the function by its name.
+                    this: undefined in strict mode, window (global object) in non-strict mode.
+                    Use case: Basic function calls, utilities.
+                    </p>
+                    </div>
+
+            </div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+                <button (click)="methodF()">method</button> <div>{{method}}</div>
+            </div>
+            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
+                {{constructor_invocation}} <button (click)="Constructor1()"> Constructor </button></div>
+            <div class="tab-pane fade" id="nav-apply" role="tabpanel" aria-labelledby="nav-apply-tab" tabindex="0">
+                {{Indirect_Invocation}}<button (click)="callanadapply()">call and apply</button>
+            </div>
+            <div class="tab-pane" id="nav-arrow" role="tabpanel" aria-labelledby="nav-arrow-tab" tabindex="0">
+                {{arrow_function}}<button (click)="arr()">arr</button>
+            </div>
+
+            <div class="tab-pane" id="nav-iife" role="tabpanel" aria-labelledby="nav-iife-tab" tabindex="0">
+                {{iife}}<button (click)="iifefunction()">iife</button></div>
+            <div class="tab-pane" id="nav-event" role="tabpanel" aria-labelledby="nav-event-tab" tabindex="0">
+                {{EVENT}}</div>
+        </div>
+    </div>
+</div>

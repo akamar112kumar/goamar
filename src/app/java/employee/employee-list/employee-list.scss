@@ -1,0 +1,37 @@
+.role-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+.roles {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.role-card {
+  flex: 1;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid #ccc;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.role-card:hover {
+  transform: translateY(-3px);
+  border-color: #007bff;
+}
+
+.role-card.selected {
+  border-color: #007bff;
+  background: #e6f0ff;
+}
+
+.section {
+  margin-top: 20px;
+  padding: 20px;
+  border-left: 4px solid #007bff;
+  background: #f9f9f9;
+}

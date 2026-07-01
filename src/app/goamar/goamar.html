@@ -1,0 +1,54 @@
+
+<div class="row">
+  <div class="col-sm-6 col-md-6">
+    <div class="card-body text-bg-primary p-3 m-3">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username" formControlName="username" aria-describedby="usernameHelp">
+        <div id="usernameHelp" class="form-text text-white">Enter your username.</div>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" formControlName="password">
+      </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="ageAccepted" formControlName="ageAccepted">
+        <label class="form-check-label" for="ageAccepted">I accept the age terms</label>
+      </div>
+      <button type="submit" class="btn btn-primary text-bg-dark" [disabled]="!loginForm.valid">Submit</button>
+            <button type="button" (click)="signup()" class="btn btn-primary text-bg-dark">Signup</button>
+    </form>
+    </div>
+         <button (click)="updateForm()" class="btn btn-primary text-bg-dark" >Update</button> 
+  </div>
+  <div class="col-sm-6 col-md-6">
+    <div class="card-body p-3 m-3">
+    <table class="table table-bordered table-striped table-hover m-3">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">ID</th>
+           <th scope="col">Username</th>
+          <th scope="col">Password</th>
+          <th scope="col">age</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of users; track item)
+          {
+          <tr>
+            <td>{{item.id}}</td>
+            <td> {{item.username}}</td>
+            <td>{{item.password}}</td>
+            <td>{{item.ageAccepted}}</td> 
+          </tr>
+        }
+      </tbody>
+    </table> 
+    </div> 
+  </div>
+</div>
+<a routerLink="/goamar/home" class="btn btn-primary text-bg-dark m-3">Go to Home</a>
+<a routerLink="/goamar/headers" class="btn btn-primary text-bg-dark m-3">Go to Header</a>
+<router-outlet />
+<hr>

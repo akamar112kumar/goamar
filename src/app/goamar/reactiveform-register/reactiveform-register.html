@@ -1,0 +1,70 @@
+<form class="row g-3 needs-validation" [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
+    <h2 class="mb-3">Register</h2>
+
+    <!-- First and Last Name (Responsive Grid) -->
+    <div class="col-md-6">
+        <label for="firstName" class="form-label">First Name</label>
+        <input type="text" class="form-control" id="firstName" placeholder="Name" formControlName="name" required>
+        @if (registerForm.get('name')?.touched && registerForm.get('name')?.invalid){
+        <div>
+            Name is required (min 3 characters)
+        </div>
+        }
+        <div class="invalid-feedback">Please enter your first name.</div>
+    </div>
+
+    <div class="col-md-6">
+
+        <label for="lastName" class="form-label">email</label>
+        <input type="email" placeholder="Email" formControlName="email" class="form-control" id="lastName" required>
+
+        @if (registerForm.get('email')?.touched && registerForm.get('email')?.invalid){
+        <div class="invalid-feedback">
+            Enter a valid email
+        </div>
+        }
+        <div class="invalid-feedback">Please enter your last name.</div>
+    </div>
+
+    <!-- Email Input with Input Group -->
+    <div class="col-6">
+        <label for="password" class="password">password</label>
+        <input type="password" placeholder="Password" class="form-control" formControlName="password" required>
+        @if (registerForm.get('email')?.touched && registerForm.get('email')?.invalid){
+        <div>
+            Enter a valid email
+        </div>
+        }
+    </div>
+
+    <!-- Password Input -->
+    <div class="col-6">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" placeholder="Confirm Password" class="form-control" formControlName="confirmPassword"
+            required>
+        @if (registerForm.errors?.['passwordMismatch']){
+
+
+        <div class="invalid-feedback">Passwords do not match</div>
+        }
+
+
+    </div>
+
+    <!-- Checkbox -->
+    <div class="col-12">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+
+            <div class="invalid-feedback">You must agree before submitting.</div>
+        </div>
+    </div>
+
+    <!-- Submit Button -->
+
+    <div class="col-12">
+        <button class="btn btn-primary" type="submit" [disabled]="registerForm.invalid">
+            Register
+        </button>
+    </div>
+</form>

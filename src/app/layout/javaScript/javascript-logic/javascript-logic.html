@@ -1,0 +1,300 @@
+  <header>
+    <h1>JavaScript Essentials & ES6+</h1>
+    <p>Quick reference for fundamentals, ES6 features, Promises, event loop, storage, and more.</p>
+  </header>
+  <div class="grid">
+    <nav>
+      <div class="card">
+        <h3>Contents</h3>
+        <ul class="compact">
+          <li><a href="#data-types">Data Types</a></li>
+          <li><a href="#new-operator">The <code>new</code> Operator (Behind the Scenes)</a></li>
+          <li><a href="#hoisting">Hoisting</a></li>
+          <li><a href="#closure">Closure</a></li>
+          <li><a href="#call-apply-bind">call, apply, bind</a></li>
+          <li><a href="#events">Event Binding & Listeners</a></li>
+          <li><a href="#function-types">Function Types & Creation</a></li>
+          <li><a href="#storage">Window/Session Storage</a></li>
+          <li><a href="#cookies">Cookies</a></li>
+          <li><a href="#json">JSON vs Object</a></li>
+          <li><a href="#array-from-string">Array from String</a></li>
+          <li><a href="#array-methods">Array Methods</a></li>
+          <li><a href="#type-coercion">String→Number & Boolean</a></li>
+          <li><a href="#this">The <code>this</code> Keyword</a></li>
+          <li><a href="#event-loop">Event Loop</a></li>
+          <li><a href="#heap">Heap Memory</a></li>
+          <li><a href="#callback">Callback</a></li>
+          <li><a href="#timers">setTimeout & setInterval</a></li>
+          <li><a href="#es6">ES6 Highlights</a></li>
+          <li><a href="#destructuring">Destructuring</a></li>
+          <li><a href="#rest-spread">Rest & Spread</a></li>
+          <li><a href="#async-await">async/await</a></li>
+          <li><a href="#template-literals">Template Literals</a></li>
+          <li><a href="#arrow-functions">Arrow Functions</a></li>
+          <li><a href="#for-of-in">for...of vs for...in</a></li>
+          <li><a href="#promises">Promises</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <article>
+      <section id="data-types" class="card">
+        <h2>Data Types</h2>
+        <h3>Primitive</h3>
+        <ul>
+          <li><code>string</code>, <code>number</code> (includes <code>NaN</code>, <code>Infinity</code>), <code>bigint</code>, <code>boolean</code>, <code>symbol</code>, <code>undefined</code>, <code>null</code></li>
+        </ul>
+        <h3>Non-primitive (Objects)</h3>
+        <ul>
+          <li><code>Object</code>, <code>Array</code>, <code>Function</code>, <code>Date</code>, <code>Map</code>, <code>Set</code>, <code>RegExp</code>, etc.</li>
+        </ul>
+        
+      </section>
+
+      <section id="new-operator" class="card">
+        <h2>The <code>new</code> Operator — What Happens Internally</h2>
+        <ol>
+          <li>Create a new empty object: <code></code></li>
+          <li>Link it: set <code>newObj.__proto__ = Constructor.prototype</code></li>
+          <li>Call the constructor with <code>this = newObj</code></li>
+          <li>If constructor returns an object, use it; otherwise return <code>newObj</code></li>
+        </ol>
+       
+        <div class="tip">Use <code>class</code> (syntactic sugar over prototype):</div>
+     
+
+      </section>
+
+      <section id="hoisting" class="card">
+        <h2>Hoisting</h2>
+        <ul>
+          <li><strong>Function declarations</strong> are hoisted with definitions.</li>
+          <li><strong>var</strong> is hoisted (initialized to <code>undefined</code>).</li>
+          <li><strong>let/const</strong> are hoisted but in TDZ (Temporal Dead Zone) until declared.</li>
+        </ul>
+
+      </section>
+
+      <section id="closure" class="card">
+        <h2>Closure</h2>
+        <p>A function remembers variables from its lexical scope even after the outer function has finished.</p>
+
+      </section>
+
+      <section id="call-apply-bind" class="card">
+       
+
+      </section>
+
+      <section id="events" class="card">
+        <h2>Event Binding & Event Listeners</h2>
+        <ul>
+          <li><code>element.addEventListener(type, handler, options)</code></li>
+          <li>Unbind with <code>removeEventListener</code> (need same reference)</li>
+          <li>Event object: <code>event.target</code>, <code>event.currentTarget</code>, <code>stopPropagation()</code>, <code>preventDefault()</code></li>
+          <li>Delegation: attach one listener to a parent and check <code>event.target</code></li>
+        </ul>
+
+      </section>
+
+      <section id="function-types" class="card">
+        <h2>Function Types & Ways to Create</h2>
+       
+
+      </section>
+
+      <section id="storage" class="card">
+        <h2>Access Window & Session Storage</h2>
+        <ul>
+          <li><code>localStorage</code> — persists until cleared</li>
+          <li><code>sessionStorage</code> — persists per-tab until closed</li>
+        </ul>
+        
+        <div class="warn">Values must be strings. Use <code>JSON.stringify</code>/<code>JSON.parse</code> for objects.</div>
+      </section>
+
+      <section id="cookies" class="card">
+        <h2>Cookies</h2>
+        <h3>Access Cookies</h3>
+        
+        <h3>Cookie Limits</h3>
+        <ul>
+          <li>Per cookie size: ~4KB (varies by browser)</li>
+          <li>Max cookies per domain: ~50 (varies)</li>
+        </ul>
+        <div class="tip">Prefer <code>HttpOnly</code> and <code>Secure</code> flags for server-set cookies when possible.</div>
+      </section>
+
+      <section id="json" class="card">
+        <h2>What is JSON? Difference vs Object</h2>
+        <ul>
+          <li><strong>JSON</strong>: a textual data format (string) — keys/strings use double quotes, limited value types.</li>
+          <li><strong>JS Object</strong>: in-memory structure with methods, symbols, prototypes.</li>
+        </ul>
+        
+      </section>
+
+      <section id="array-from-string" class="card">
+        <h2>Create Array from String</h2>
+    
+      </section>
+
+      <section id="array-methods" class="card">
+        <h2>Array Important Methods</h2>
+        <ul>
+          <li><code>push</code>, <code>pop</code>, <code>shift</code>, <code>unshift</code>, <code>splice</code>, <code>slice</code></li>
+          <li><code>map</code>, <code>filter</code>, <code>reduce</code>, <code>forEach</code>, <code>find</code>, <code>some</code>, <code>every</code></li>
+          <li><code>includes</code>, <code>indexOf</code>, <code>join</code>, <code>flat</code>, <code>flatMap</code>, <code>concat</code>, <code>sort</code></li>
+        </ul>
+      
+      </section>
+
+      <section id="type-coercion" class="card">
+        <h2>Convert String ↔ Number, Convert to Boolean</h2>
+        <h3>String → Number</h3>
+      
+        <h3>To Boolean</h3>
+        <ul>
+          <li>Falsy: <code>""</code>, <code>0</code>, <code>-0</code>, <code>NaN</code>, <code>null</code>, <code>undefined</code>, <code>false</code></li>
+          <li>Everything else is truthy.</li>
+        </ul>
+     
+      </section>
+
+      <section id="this" class="card">
+        <h2>The <code>this</code> Keyword & Common Pitfalls</h2>
+        <ul>
+          <li>Global (non-strict): <code>this === window</code> in browsers</li>
+          <li>Strict mode: <code>this</code> is <code>undefined</code> in functions</li>
+          <li>Method call: <code>obj.method()</code> → <code>this = obj</code></li>
+          <li>Event listener: <code>this</code> is element (non-arrow fn)</li>
+          <li>Arrow functions: <strong>no own <code>this</code></strong>, they capture lexical <code>this</code></li>
+        </ul>
+        <div class="bad">Pitfall: losing <code>this</code> when passing methods as callbacks.</div>
+        
+      </section>
+
+      <section id="event-loop" class="card">
+        <h2>Event Loop (Microtasks vs Macrotasks)</h2>
+        <ul>
+          <li>Call stack runs synchronous code.</li>
+          <li><strong>Microtasks</strong>: <code>Promise.then</code>, <code>queueMicrotask</code>, <code>MutationObserver</code></li>
+          <li><strong>Macrotasks</strong>: <code>setTimeout</code>, <code>setInterval</code>, DOM events, I/O</li>
+          <li>Order: after each stack empty, run all microtasks, then one macrotask.</li>
+        </ul>
+     
+      </section>
+
+      <section id="heap" class="card">
+        <h2>Heap Memory (and Stack)</h2>
+        <ul>
+          <li><strong>Stack</strong>: function calls, primitive local variables.</li>
+          <li><strong>Heap</strong>: objects/functions/closures allocated here.</li>
+          <li>GC reclaims unreachable objects (mark-and-sweep). Avoid leaks via global refs, detached DOM, long-lived caches.</li>
+        </ul>
+      </section>
+
+      <section id="callback" class="card">
+        <h2>Callback</h2>
+        <p>A function passed to another function to be executed later (async or sync).</p>
+       
+        <div class="warn">Callback hell: nested callbacks become hard to manage → use Promises/async.</div>
+      </section>
+
+      <section id="timers" class="card">
+        <h2>setTimeout & setInterval</h2>
+        
+        <div class="tip">Prefer <code>setTimeout</code> loop for precise intervals and to avoid drift.</div>
+      </section>
+
+      <section id="es6" class="card">
+        <h2>ES6 New Features (Highlights)</h2>
+        <ul>
+          <li><code>let</code>/<code>const</code>, <code>class</code>, modules (<code>import</code>/<code>export</code>)</li>
+          <li>Arrow functions, default params, rest/spread, destructuring</li>
+          <li>Template literals, <code>Map</code>/<code>Set</code>, <code>Symbol</code></li>
+          <li>Promises, <code>for...of</code>, iterators/generators</li>
+        </ul>
+        <h3>let vs const</h3>
+        <ul>
+          <li><code>let</code>: block-scoped, re-assignable</li>
+          <li><code>const</code>: block-scoped, not re-assignable (but object contents can mutate)</li>
+        </ul>
+      
+      </section>
+
+      <section id="destructuring" class="card">
+        <h2>Destructuring</h2>
+        <h3>Array</h3>
+       
+        <h3>Object</h3>
+       
+      </section>
+
+      <section id="rest-spread" class="card">
+        <h2>Rest & Spread</h2>
+        <h3>Rest (collect)</h3>
+      
+        <h3>Spread (expand)</h3>
+       
+      </section>
+
+      <section id="async-await" class="card">
+        <h2>async / await</h2>
+        <ul>
+          <li><code>async</code> function returns a Promise.</li>
+          <li><code>await</code> pauses inside async function until Promise settles (non-blocking overall thread).</li>
+        </ul>
+  
+      </section>
+
+      <section id="template-literals" class="card">
+        <h2>Template Literals (Backticks)</h2>
+        
+      </section>
+
+      <section id="arrow-functions" class="card">
+        <h2>Arrow Functions</h2>
+        <ul>
+          <li>Lexical <code>this</code> and <code>arguments</code>; cannot be used as constructors.</li>
+          <li>Concise syntax; implicit return when no braces.</li>
+        </ul>
+    
+      </section>
+
+      <section id="for-of-in" class="card">
+        <h2>for...of vs for...in</h2>
+        <ul>
+          <li><code>for...of</code>: iterates values of iterables (arrays, strings, maps, sets)</li>
+          <li><code>for...in</code>: iterates <em>enumerable keys</em> over objects (including inherited) — use cautiously</li>
+        </ul>
+        
+      </section>
+
+      <section id="promises" class="card">
+        <h2>Promises</h2>
+        <h3>Why Introduced</h3>
+        <p>To avoid “callback hell”, provide composable async flows, error propagation, and better control.</p>
+
+        <h3>Single Promise</h3>
+       
+
+        <h3>Nested Promise (avoid)</h3>
+        
+
+        <h3>Promise Chaining (preferred)</h3>
+       
+
+        <h3>Run Multiple in One Call</h3>
+        <ul>
+          <li><code>Promise.all</code>: waits for all, rejects fast if any fail</li>
+          <li><code>Promise.allSettled</code>: waits for all, never rejects (gives statuses)</li>
+          <li><code>Promise.race</code>: first to settle (resolve or reject)</li>
+          <li><code>Promise.any</code>: first to <em>fulfill</em> (rejects with AggregateError if all reject)</li>
+        </ul>
+       
+      </section>
+    </article>
+    </div>
+
+  

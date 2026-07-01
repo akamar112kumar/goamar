@@ -1,0 +1,82 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand test" routerLink="home">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        @for (item of menuItems; track item){
+        <li class="nav-item" (click)="handleAction(item)">
+          @if(item.link) {
+          <a class="nav-link active" aria-current="page" [routerLink]="item.link">{{ item.label }}</a>
+          }
+        </li>
+        <li class="nav-item dropdown">
+          @if(item.children) {
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" [style.color]="item.color" [class.color]="item.color">
+            {{item.label}}
+          </a>
+          <ul class="dropdown-menu">
+            @for (subItem of item.children; track subItem) {
+            <li (click)="handleAction(subItem)">
+              @if(subItem.link) {
+              <a class="dropdown-item"  [routerLink]="subItem.link" [style.color]="subItem.color">{{ subItem.label }}{{subItem.color}}</a>
+              }
+              @if(!subItem.link){
+              <span>{{ subItem.label }}</span>
+              }
+            </li>
+            }
+          </ul>
+          }
+        </li>
+        }
+        <li class="nav-item" >
+          <a class="nav-link" (click)="disableMenu()">Disabled</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search name" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+<!-- <nav>
+  <ul class="menu-list">
+    @for (item of menuItems; track item){
+    <li (click)="handleAction(item)">
+      <a [routerLink]="item.link">{{ item.label }}</a>
+      <span >{{ item.label }}</span>
+      <ul  class="sub-menu">
+        @for (subItem of item.children; track subItem) {
+        <li (click)="handleAction(subItem)">
+          <a [routerLink]="subItem.link">{{ subItem.label }}</a>
+          <span >{{ subItem.label }}</span>
+        </li>
+      }
+        
+      </ul>
+    </li>
+  }
+  </ul>
+</nav> -->
+
+<!-- <nav>
+  <ul class="menu-list">
+    <li *ngFor="let item of menuItems" (click)="handleAction(item)">
+      <a *ngIf="item.link" [routerLink]="item.link">{{ item.label }}</a>
+      <span *ngIf="!item.link">{{ item.label }}</span>
+      <ul *ngIf="item.children" class="sub-menu">
+        <li *ngFor="let subItem of item.children" (click)="handleAction(subItem)">
+          <a *ngIf="subItem.link" [routerLink]="subItem.link">{{ subItem.label }}</a>
+          <span *ngIf="!subItem.link">{{ subItem.label }}</span>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav> -->

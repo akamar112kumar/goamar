@@ -1,0 +1,191 @@
+
+<div>
+  <h1 class="color">text</h1>
+</div>
+
+ <div class="container my-5">
+   <div class="row">
+
+   <div class="col-md-4 offset-md-4">
+    <div class="d-flex gap-2">
+       <label for="search">Search:</label>
+        <input id="search" class="w-100" type="text" [(ngModel)]="searchTerm" placeholder="Search by name or user">
+    </div>
+   </div>
+   <div class="col-md-4 ">
+    
+    <div class="d-flex gap-2">
+      <label for="search">Rxjs:</label>
+      <input type="text" class="w-100" placeholder="Search by name..."(input)="onSearch($event.target.value)" />
+    </div>
+    
+   </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <table class="table table-striped color">
+      <thead>
+        <tr>
+          <th class="color" style="color: rgb(36, 18, 151);">ID</th>
+          <th>Name</th>
+          <th>Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for(user of users$ | async; track user.id) {
+        <tr>
+          <td class="color">{{ user.id }} </td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.role }}</td>
+        </tr>
+        }
+      </tbody>
+      </table>
+    </div>
+
+    <div class="col-md-4">
+      <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Role</th>
+        </tr>
+      </thead>
+        <tbody>
+          @for(user of filteredUsers; track user.id) {
+          <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.role }}</td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-4">
+      <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Role</th>
+        </tr>
+      </thead>
+        <tbody>
+          @for (user of (filteredUsers$ | async); track user.id; let i = $index) {
+            <tr>
+              
+              <td>
+                {{ i + 1 }}
+              </td>
+              <td> {{ user.name }}</td>
+              <td> {{ user.role }}</td>
+           
+            </tr>
+          }
+        </tbody>
+        
+      </table>
+    </div>
+  </div>
+</div> 
+
+
+<div>
+<div>
+  <input type="text" class="form-control mb-3" placeholder="Search by name or username..." [(ngModel)]="searchTerm" (input)="onSearch(searchTerm)" />
+</div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Username</th>
+        <th>company</th>
+        <th>address</th>
+        <th>email</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      @for (user of apidata; track user.id) {
+      <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.username }}</td>
+        <td>
+          <div class="dropdown">
+            <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button"
+              id="companyDropdown{{ user.id }}" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ user.company.name }}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="companyDropdown{{ user.id }}">
+              <li><span class="dropdown-item-text">{{ user.company.catchPhrase }}</span></li>
+              <li><a class="dropdown-item">{{user.company.bs}}</a></li>
+              
+            </ul>
+          </div>
+        </td>
+       <td>
+        <div class="dropdown">
+          <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button"
+            data-bs-toggle="modal" data-bs-target="#adminLoginModal">
+            {{ user.address.city }}
+          </button>
+          </div>
+        </td>
+        <td>{{ user.email }}</td>
+      </tr>
+    }
+    </tbody>
+  </table>
+</div>
+
+
+
+<!-- Admin Login Modal -->
+<div class="modal fade" id="adminLoginModal" tabindex="-1" aria-labelledby="adminLoginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="adminLoginModalLabel">Admin Login</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form (ngSubmit)="onAdminLogin()">
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="adminUsername" class="form-label">Username</label>
+            <input id="adminUsername" name="adminUsername" [(ngModel)]="adminUsername" type="text" class="form-control" placeholder="Enter admin username" required />
+          </div>
+          <div class="mb-3">
+            <label for="adminPassword" class="form-label">Password</label>
+            <input id="adminPassword" name="adminPassword" [(ngModel)]="adminPassword" type="password" class="form-control" placeholder="Enter admin password" required />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div>
+            @for (user of items; track user.id) {
+              <p>{{ user.name }} - {{ user.roles }}</p>
+            }
+          </div>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- Child route outlet for adminlogin -->
+<router-outlet></router-outlet>
+
+
+
+
+
+
+
+
